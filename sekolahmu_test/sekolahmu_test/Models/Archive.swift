@@ -40,3 +40,28 @@ class Archive: Mappable {
         multimedia <- map["multimedia"]
     }
 }
+
+class ArchiveList: Mappable {
+    
+    var currentPage = 0
+    var from = 0
+    var lastPage = 0
+    var perPage = 0
+    var to = 0
+    var total = 0
+    var arrArchive: [Archive] = []
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        currentPage <- map["meta.current_page"]
+        from <- map["meta.from"]
+        lastPage <- map["meta.last_page"]
+        perPage <- map["meta.per_page"]
+        to <- map["meta.to"]
+        total <- map["meta.total"]
+        arrArchive <- map["docs"]
+    }
+    
+}

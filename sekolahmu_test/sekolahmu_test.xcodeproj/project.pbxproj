@@ -14,6 +14,9 @@
 		FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00027E4EE2100733BBC /* CommonHelper.swift */; };
 		FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00427E4EEBB00733BBC /* Archive.swift */; };
 		FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00627E4EFCB00733BBC /* Multimedia.swift */; };
+		FA9BD00927E4F20400733BBC /* ArchiveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00827E4F20400733BBC /* ArchiveRequest.swift */; };
+		FA9BD00B27E4F44E00733BBC /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00A27E4F44E00733BBC /* UICollectionView.swift */; };
+		FA9BD00D27E4F46D00733BBC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00C27E4F46D00733BBC /* UIViewController.swift */; };
 		FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA327E4E7B800AC226B /* AppDelegate.swift */; };
 		FAC28AA627E4E7B800AC226B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA527E4E7B800AC226B /* SceneDelegate.swift */; };
 		FAC28AA827E4E7B800AC226B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA727E4E7B800AC226B /* ViewController.swift */; };
@@ -58,6 +61,9 @@
 		FA9BD00027E4EE2100733BBC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		FA9BD00427E4EEBB00733BBC /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		FA9BD00627E4EFCB00733BBC /* Multimedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multimedia.swift; sourceTree = "<group>"; };
+		FA9BD00827E4F20400733BBC /* ArchiveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveRequest.swift; sourceTree = "<group>"; };
+		FA9BD00A27E4F44E00733BBC /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		FA9BD00C27E4F46D00733BBC /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FAC28AA027E4E7B800AC226B /* sekolahmu_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sekolahmu_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC28AA327E4E7B800AC226B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC28AA527E4E7B800AC226B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 		FAC28AD327E4E89800AC226B /* Api Requests */ = {
 			isa = PBXGroup;
 			children = (
+				FA9BD00827E4F20400733BBC /* ArchiveRequest.swift */,
 			);
 			path = "Api Requests";
 			sourceTree = "<group>";
@@ -238,6 +245,8 @@
 		FAC28AD927E4E8D000AC226B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FA9BD00A27E4F44E00733BBC /* UICollectionView.swift */,
+				FA9BD00C27E4F46D00733BBC /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,12 +499,15 @@
 			files = (
 				FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */,
 				FAC28ADE27E4E92600AC226B /* Constants.swift in Sources */,
+				FA9BD00D27E4F46D00733BBC /* UIViewController.swift in Sources */,
 				FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */,
 				FAC28AA827E4E7B800AC226B /* ViewController.swift in Sources */,
 				FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */,
 				FAC28ADC27E4E91A00AC226B /* Endpoints.swift in Sources */,
 				FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */,
+				FA9BD00927E4F20400733BBC /* ArchiveRequest.swift in Sources */,
 				FAC28AA627E4E7B800AC226B /* SceneDelegate.swift in Sources */,
+				FA9BD00B27E4F44E00733BBC /* UICollectionView.swift in Sources */,
 				FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
