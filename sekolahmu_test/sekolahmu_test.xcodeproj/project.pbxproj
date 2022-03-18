@@ -12,6 +12,8 @@
 		8802182AE613E47A48B444F3 /* Pods_sekolahmu_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB96AEF068D238722EDF172 /* Pods_sekolahmu_test.framework */; };
 		FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */; };
 		FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00027E4EE2100733BBC /* CommonHelper.swift */; };
+		FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00427E4EEBB00733BBC /* Archive.swift */; };
+		FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00627E4EFCB00733BBC /* Multimedia.swift */; };
 		FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA327E4E7B800AC226B /* AppDelegate.swift */; };
 		FAC28AA627E4E7B800AC226B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA527E4E7B800AC226B /* SceneDelegate.swift */; };
 		FAC28AA827E4E7B800AC226B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA727E4E7B800AC226B /* ViewController.swift */; };
@@ -54,6 +56,8 @@
 		B635809140164D54D4012804 /* Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		FA9BD00027E4EE2100733BBC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
+		FA9BD00427E4EEBB00733BBC /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
+		FA9BD00627E4EFCB00733BBC /* Multimedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multimedia.swift; sourceTree = "<group>"; };
 		FAC28AA027E4E7B800AC226B /* sekolahmu_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sekolahmu_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC28AA327E4E7B800AC226B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC28AA527E4E7B800AC226B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 		FAC28AD527E4E8A500AC226B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA9BD00427E4EEBB00733BBC /* Archive.swift */,
+				FA9BD00627E4EFCB00733BBC /* Multimedia.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,9 +490,11 @@
 			files = (
 				FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */,
 				FAC28ADE27E4E92600AC226B /* Constants.swift in Sources */,
+				FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */,
 				FAC28AA827E4E7B800AC226B /* ViewController.swift in Sources */,
 				FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */,
 				FAC28ADC27E4E91A00AC226B /* Endpoints.swift in Sources */,
+				FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */,
 				FAC28AA627E4E7B800AC226B /* SceneDelegate.swift in Sources */,
 				FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */,
 			);

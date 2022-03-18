@@ -10,6 +10,6 @@ import SwifterSwift
 
 enum Constants {
     // App Information
-    static var APIKey = "34762236fece91790146633ca99d486b"
+    static var APIKey = "ohUOeisWtjswZ3kvNiCkTA2RqyAG7coI"
 }
 
