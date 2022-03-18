@@ -10,6 +10,8 @@
 		0AA33FF9F415E9B5BEB761CB /* Pods_sekolahmu_test_sekolahmu_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E70756953EE78858DA804F /* Pods_sekolahmu_test_sekolahmu_testUITests.framework */; };
 		620E29E8323AAFA4D38573F2 /* Pods_sekolahmu_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A91CF5B0EE6D2CF6AE9011C /* Pods_sekolahmu_testTests.framework */; };
 		8802182AE613E47A48B444F3 /* Pods_sekolahmu_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB96AEF068D238722EDF172 /* Pods_sekolahmu_test.framework */; };
+		FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */; };
+		FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00027E4EE2100733BBC /* CommonHelper.swift */; };
 		FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA327E4E7B800AC226B /* AppDelegate.swift */; };
 		FAC28AA627E4E7B800AC226B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA527E4E7B800AC226B /* SceneDelegate.swift */; };
 		FAC28AA827E4E7B800AC226B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA727E4E7B800AC226B /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 		5F6396AB17397075C38D0B7A /* Pods-sekolahmu_testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_testTests.release.xcconfig"; path = "Target Support Files/Pods-sekolahmu_testTests/Pods-sekolahmu_testTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C479C596DAA3B0ACF2E7D73 /* Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B635809140164D54D4012804 /* Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
+		FA9BD00027E4EE2100733BBC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		FAC28AA027E4E7B800AC226B /* sekolahmu_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sekolahmu_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC28AA327E4E7B800AC226B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC28AA527E4E7B800AC226B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 		FAC28AD427E4E89F00AC226B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */,
+				FA9BD00027E4EE2100733BBC /* CommonHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -476,11 +482,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */,
 				FAC28ADE27E4E92600AC226B /* Constants.swift in Sources */,
 				FAC28AA827E4E7B800AC226B /* ViewController.swift in Sources */,
 				FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */,
 				FAC28ADC27E4E91A00AC226B /* Endpoints.swift in Sources */,
 				FAC28AA627E4E7B800AC226B /* SceneDelegate.swift in Sources */,
+				FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
