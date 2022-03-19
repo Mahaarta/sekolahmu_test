@@ -13,6 +13,12 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let articleData = self.arrArticle?.count
         
+        if (articleData ?? 0 == 0) {
+            self.colView.setEmptyMessage("No News Found")
+        } else {
+            self.colView.restore()
+        }
+        
         return articleData ?? 0
     }
     

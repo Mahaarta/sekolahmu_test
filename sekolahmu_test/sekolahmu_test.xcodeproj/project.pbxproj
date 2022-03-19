@@ -34,6 +34,7 @@
 		FA9BD03527E5BC5200733BBC /* ProgressBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD03327E5BC5200733BBC /* ProgressBarViewController.xib */; };
 		FA9BD03927E5E25000733BBC /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD03727E5E24F00733BBC /* NetworkErrorViewController.swift */; };
 		FA9BD03A27E5E25000733BBC /* NetworkErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD03827E5E24F00733BBC /* NetworkErrorViewController.xib */; };
+		FA9BD03E27E5FBB600733BBC /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD03D27E5FBB600733BBC /* UICollectionView.swift */; };
 		FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA327E4E7B800AC226B /* AppDelegate.swift */; };
 		FAC28AAD27E4E7BC00AC226B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC28AAC27E4E7BC00AC226B /* Assets.xcassets */; };
 		FAC28AB027E4E7BC00AC226B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC28AAE27E4E7BC00AC226B /* LaunchScreen.storyboard */; };
@@ -95,6 +96,7 @@
 		FA9BD03327E5BC5200733BBC /* ProgressBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarViewController.xib; sourceTree = "<group>"; };
 		FA9BD03727E5E24F00733BBC /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
 		FA9BD03827E5E24F00733BBC /* NetworkErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorViewController.xib; sourceTree = "<group>"; };
+		FA9BD03D27E5FBB600733BBC /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		FAC28AA027E4E7B800AC226B /* sekolahmu_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sekolahmu_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC28AA327E4E7B800AC226B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC28AAC27E4E7BC00AC226B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			children = (
 				FA9BD00A27E4F44E00733BBC /* UICollectionViewCell.swift */,
 				FA9BD00C27E4F46D00733BBC /* UIViewController.swift */,
+				FA9BD03D27E5FBB600733BBC /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				FA9BD02027E5479700733BBC /* ArchiveViewModel.swift in Sources */,
 				FA9BD03927E5E25000733BBC /* NetworkErrorViewController.swift in Sources */,
 				FA9BD02227E57C5C00733BBC /* Article.swift in Sources */,
+				FA9BD03E27E5FBB600733BBC /* UICollectionView.swift in Sources */,
 				FA9BD02F27E5AD3300733BBC /* NewsDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

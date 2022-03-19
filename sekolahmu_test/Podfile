@@ -14,6 +14,9 @@ target 'sekolahmu_test' do
   # popup
   pod 'EzPopup'
   
+  # Autolayout
+  pod 'SnapKit'
+  
   # Code stuff
   pod 'SwifterSwift'
   
