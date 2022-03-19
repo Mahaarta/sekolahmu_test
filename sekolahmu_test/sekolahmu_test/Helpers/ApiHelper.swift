@@ -55,11 +55,7 @@ class ApiHelper {
     
     // API Request header for authenticated user
     func authJsonHeader() -> HTTPHeaders {
-        let headers: HTTPHeaders = [
-            "Token": "C4rB0N4r4",
-            "Content-Type": "application/json",
-            "Authorization": "Bearer Token"
-        ]
+        let headers: HTTPHeaders = [:]
         return headers
     }
     
@@ -76,10 +72,6 @@ class ApiHelper {
     static func setupDefaultHeader(headers: HTTPHeaders) -> HTTPHeaders {
         // Insert your common headers here, for example, authorization token or accept.
         var commonHeaders: [String: String] = [:]
-        
-        commonHeaders["Accept"] = "application/json, text/plain"
-        commonHeaders["Token"] = "C4rB0N4r4"
-        commonHeaders["Authorization"] = "Bearer Token"
         
         // Replace old value with new value
         commonHeaders.merge(headers) { (_, new) in new }

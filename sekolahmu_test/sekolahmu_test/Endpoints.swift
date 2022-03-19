@@ -14,6 +14,7 @@ private protocol Endpoint {
 private struct Api {
     static let baseUrlProd = "https://api.nytimes.com/svc"
     static let baseUrlDev = "https://api.nytimes.com/svc"
+    static let baseUrlImage = "https://www.nytimes.com"
     
     #if IS_PRODUCTION
     static let baseUrl = baseUrlProd
@@ -26,10 +27,14 @@ private struct Api {
 enum Endpoints {
     enum News: Endpoint {
         case archive
+        case article
+        case thumbnail
         
         public var url: String {
             switch self {
             case .archive: return "\(Api.baseUrl)/archive/v1"
+            case .article: return "\(Api.baseUrl)/search/v2/articlesearch.json"
+            case .thumbnail: return "\(Api.baseUrlImage)"
             }
         }
     }
