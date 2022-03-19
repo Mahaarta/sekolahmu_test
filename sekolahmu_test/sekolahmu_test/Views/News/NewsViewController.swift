@@ -39,6 +39,10 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     // Setting up view
     func settingView() {
         searchField.delegate = self

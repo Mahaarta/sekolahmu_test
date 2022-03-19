@@ -23,14 +23,14 @@ class ProgressBarViewController: UIViewController {
         super.viewDidLoad()
         
         self.progressLabel.text = "Please wait.."
-        self.progressIndicator.setProgress(0.15, animated: true)
+        self.progressIndicator.setProgress(0.35, animated: true)
         
         if done { settingView() }
     }
     
     func settingView() {
         print("udah belom \(done)")
-        self.progressIndicator.setProgress(1, animated: true)
+        self.progressIndicator.setProgress(1.0, animated: true)
         progressBarDelegate.progressBar(done: true)
     }
 }

@@ -7,8 +7,9 @@
 
 import Hero
 import UIKit
+import EzPopup
 
-class NewsDetailViewController: UIViewController {
+class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var backContainer: UIView!
     @IBOutlet weak var backButton: UIButton!
@@ -44,6 +45,25 @@ class NewsDetailViewController: UIViewController {
         backContainer.borderColor = UIColor(hexString: "CCCCCC")
     }
     
+    // Call progressBar indicator
+    func settingProgressBarView(done: Bool) {
+        let progressBarPop = ProgressBarViewController.loadFromNib()
+        progressBarPop.done = done
+        progressBarPop.progressBarDelegate = self
+        
+        let popupVC = PopupViewController(
+            contentController: progressBarPop,
+            position: .center(CGPoint(x: 0, y: 0)),
+            popupWidth: UIScreen.main.bounds.width-32-32,
+            popupHeight: 150
+        )
+        
+        popupVC.cornerRadius = 24
+        popupVC.canTapOutsideToDismiss = false
+        
+        if !done { self.present(popupVC, animated: true, completion: nil); print("8888") }
+    }
+    
     // Setting up hero id
     func settingHero() {
         self.articleImageView.hero.id = "image-\(self.article?._id ?? "")"
@@ -53,11 +73,16 @@ class NewsDetailViewController: UIViewController {
     
     // Retrieve article data
     func retrieveArticleData() {
+        //settingProgressBarView(done: false)
+        
         guard let article = article else {
+            settingProgressBarView(done: true)
             showAlert(title: "", message: Constants.defaultErrorMessage)
             return
         }
 
+        settingProgressBarView(done: true)
+        
         titleLabel.text = article.headline_main
         descUITextView.text = article.lead_paragraph
         retrieveImageData(multimedia: article.multimedia)
@@ -77,6 +102,13 @@ class NewsDetailViewController: UIViewController {
         }
     }
     
+    // Protocol delegate - From ProgressBarViewController
+    func progressBar(done: Bool) {
+        if done {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     //MARK: Button Action
     @IBAction func backButton_tapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -86,5 +118,25 @@ class NewsDetailViewController: UIViewController {
     }
     
     @IBAction func shareButton_tapped(_ sender: Any) {
+        guard let article = self.article else {
+            showAlert(title: "", message: Constants.defaultErrorMessage)
+            return
+        }
+        
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        UIGraphicsEndImageContext()
+        
+        let textToShare = article.headline_main
+        
+        if let myWebsite = URL(string: article._id) {//Enter link to your app here
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            activityVC.popoverPresentationController?.sourceView = sender as? UIView
+            self.present(activityVC, animated: true, completion: nil)
+        }
     }
 }
