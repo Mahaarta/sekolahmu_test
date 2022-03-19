@@ -27,4 +27,10 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return CGSize(width: colView.width-16-16, height: 127)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = NewsDetailViewController.loadFromNib()
+        vc.article = self.arrArticle?[safe: indexPath.item]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

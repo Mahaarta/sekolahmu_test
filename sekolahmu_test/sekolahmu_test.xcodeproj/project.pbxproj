@@ -28,6 +28,8 @@
 		FA9BD02727E57D3400733BBC /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD02527E57D3400733BBC /* ArticleCollectionViewCell.xib */; };
 		FA9BD02A27E57E6D00733BBC /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD02927E57E6D00733BBC /* ArticleViewModel.swift */; };
 		FA9BD02C27E57EAE00733BBC /* ArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD02B27E57EAE00733BBC /* ArticleRequest.swift */; };
+		FA9BD02F27E5AD3300733BBC /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD02D27E5AD3300733BBC /* NewsDetailViewController.swift */; };
+		FA9BD03027E5AD3300733BBC /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD02E27E5AD3300733BBC /* NewsDetailViewController.xib */; };
 		FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA327E4E7B800AC226B /* AppDelegate.swift */; };
 		FAC28AAD27E4E7BC00AC226B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC28AAC27E4E7BC00AC226B /* Assets.xcassets */; };
 		FAC28AB027E4E7BC00AC226B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC28AAE27E4E7BC00AC226B /* LaunchScreen.storyboard */; };
@@ -83,6 +85,8 @@
 		FA9BD02527E57D3400733BBC /* ArticleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA9BD02927E57E6D00733BBC /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		FA9BD02B27E57EAE00733BBC /* ArticleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRequest.swift; sourceTree = "<group>"; };
+		FA9BD02D27E5AD3300733BBC /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		FA9BD02E27E5AD3300733BBC /* NewsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
 		FAC28AA027E4E7B800AC226B /* sekolahmu_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sekolahmu_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC28AA327E4E7B800AC226B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC28AAC27E4E7BC00AC226B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		FA9BD00F27E4F4D200733BBC /* News Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FA9BD02D27E5AD3300733BBC /* NewsDetailViewController.swift */,
+				FA9BD02E27E5AD3300733BBC /* NewsDetailViewController.xib */,
 			);
 			path = "News Detail";
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9BD03027E5AD3300733BBC /* NewsDetailViewController.xib in Resources */,
 				FAC28AB027E4E7BC00AC226B /* LaunchScreen.storyboard in Resources */,
 				FA9BD01B27E4F68600733BBC /* ArchiveCollectionViewCell.xib in Resources */,
 				FA9BD02727E57D3400733BBC /* ArticleCollectionViewCell.xib in Resources */,
@@ -597,6 +604,7 @@
 				FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */,
 				FA9BD02027E5479700733BBC /* ArchiveViewModel.swift in Sources */,
 				FA9BD02227E57C5C00733BBC /* Article.swift in Sources */,
+				FA9BD02F27E5AD3300733BBC /* NewsDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

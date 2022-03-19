@@ -28,7 +28,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     func getArchiveThumbnail(multimedia: [Multimedia]) {
         let thumbnail = multimedia.filter { $0.subtype == "thumbnail" }.first?.url
         
-        print("thumbnailthumbnail \(thumbnail)")
         if let thumbnail = thumbnail {
             let imageURL = URL(string: "\(Endpoints.News.thumbnail.url)/\(thumbnail)")
             articleImageView.kf.setImage(with: imageURL)
