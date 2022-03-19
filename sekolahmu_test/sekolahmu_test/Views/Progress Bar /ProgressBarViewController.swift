@@ -7,36 +7,30 @@
 
 import UIKit
 
-protocol progressBarDelegate {
+protocol ProgressBarDelegate {
     func progressBar(done: Bool)
 }
 
 class ProgressBarViewController: UIViewController {
     @IBOutlet weak var progressIndicator: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
+    // Register delegate
+    var progressBarDelegate: ProgressBarDelegate!
+    // is done
+    var done = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingView()
+        self.progressLabel.text = "Please wait.."
+        self.progressIndicator.setProgress(0.15, animated: true)
+        
+        if done { settingView() }
     }
     
     func settingView() {
-        progressLabel.text = "Please wait.."
-        
-        // stop any current animation
-        self.progressIndicator.layer.sublayers?.forEach { $0.removeAllAnimations() }
-        
-        // reset progressIndicator to 100%
-        self.progressIndicator.setProgress(1.0, animated: false)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            // set progressIndicator to 0%, with animated set to false
-            self.progressIndicator.setProgress(0.0, animated: false)
-            // 10-second animation changing from 100% to 0%
-            UIView.animate(withDuration: 10, delay: 0, options: [], animations: { [unowned self] in
-                self.progressIndicator.layoutIfNeeded()
-            })
-        }
+        print("udah belom \(done)")
+        self.progressIndicator.setProgress(1, animated: true)
+        progressBarDelegate.progressBar(done: true)
     }
 }

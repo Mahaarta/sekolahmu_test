@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - EzPopup (1.2.3)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
@@ -33,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - EzPopup
   - Kingfisher (~> 5.2)
   - ObjectMapper
   - SwifterSwift
@@ -41,6 +43,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - EzPopup
     - Kingfisher
     - ObjectMapper
     - SwifterSwift
@@ -48,11 +51,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  EzPopup: bd911825754e020b926287453ad4947045a04d1e
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: a89bdf07277377c0bb91e8773877fcf9a527d0f2
+PODFILE CHECKSUM: 74d37578d30f6798dac12aa8f7d47a756426fcea
 
 COCOAPODS: 1.11.2

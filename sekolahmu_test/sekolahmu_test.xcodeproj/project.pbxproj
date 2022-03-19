@@ -15,7 +15,7 @@
 		FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00427E4EEBB00733BBC /* Archive.swift */; };
 		FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00627E4EFCB00733BBC /* Multimedia.swift */; };
 		FA9BD00927E4F20400733BBC /* ArchiveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00827E4F20400733BBC /* ArchiveRequest.swift */; };
-		FA9BD00B27E4F44E00733BBC /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00A27E4F44E00733BBC /* UICollectionView.swift */; };
+		FA9BD00B27E4F44E00733BBC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00A27E4F44E00733BBC /* UICollectionViewCell.swift */; };
 		FA9BD00D27E4F46D00733BBC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00C27E4F46D00733BBC /* UIViewController.swift */; };
 		FA9BD01227E4F4E300733BBC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD01027E4F4E300733BBC /* NewsViewController.swift */; };
 		FA9BD01327E4F4E300733BBC /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD01127E4F4E300733BBC /* NewsViewController.xib */; };
@@ -32,6 +32,8 @@
 		FA9BD03027E5AD3300733BBC /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD02E27E5AD3300733BBC /* NewsDetailViewController.xib */; };
 		FA9BD03427E5BC5200733BBC /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD03227E5BC5200733BBC /* ProgressBarViewController.swift */; };
 		FA9BD03527E5BC5200733BBC /* ProgressBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD03327E5BC5200733BBC /* ProgressBarViewController.xib */; };
+		FA9BD03927E5E25000733BBC /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD03727E5E24F00733BBC /* NetworkErrorViewController.swift */; };
+		FA9BD03A27E5E25000733BBC /* NetworkErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9BD03827E5E24F00733BBC /* NetworkErrorViewController.xib */; };
 		FAC28AA427E4E7B800AC226B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC28AA327E4E7B800AC226B /* AppDelegate.swift */; };
 		FAC28AAD27E4E7BC00AC226B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC28AAC27E4E7BC00AC226B /* Assets.xcassets */; };
 		FAC28AB027E4E7BC00AC226B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC28AAE27E4E7BC00AC226B /* LaunchScreen.storyboard */; };
@@ -74,7 +76,7 @@
 		FA9BD00427E4EEBB00733BBC /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		FA9BD00627E4EFCB00733BBC /* Multimedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multimedia.swift; sourceTree = "<group>"; };
 		FA9BD00827E4F20400733BBC /* ArchiveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveRequest.swift; sourceTree = "<group>"; };
-		FA9BD00A27E4F44E00733BBC /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		FA9BD00A27E4F44E00733BBC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		FA9BD00C27E4F46D00733BBC /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FA9BD01027E4F4E300733BBC /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		FA9BD01127E4F4E300733BBC /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
@@ -91,6 +93,8 @@
 		FA9BD02E27E5AD3300733BBC /* NewsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
 		FA9BD03227E5BC5200733BBC /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
 		FA9BD03327E5BC5200733BBC /* ProgressBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarViewController.xib; sourceTree = "<group>"; };
+		FA9BD03727E5E24F00733BBC /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
+		FA9BD03827E5E24F00733BBC /* NetworkErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorViewController.xib; sourceTree = "<group>"; };
 		FAC28AA027E4E7B800AC226B /* sekolahmu_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sekolahmu_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC28AA327E4E7B800AC226B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC28AAC27E4E7BC00AC226B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,6 +229,15 @@
 			path = "Progress Bar ";
 			sourceTree = "<group>";
 		};
+		FA9BD03627E5E20B00733BBC /* Network Error */ = {
+			isa = PBXGroup;
+			children = (
+				FA9BD03727E5E24F00733BBC /* NetworkErrorViewController.swift */,
+				FA9BD03827E5E24F00733BBC /* NetworkErrorViewController.xib */,
+			);
+			path = "Network Error";
+			sourceTree = "<group>";
+		};
 		FAC28A9727E4E7B800AC226B = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +341,7 @@
 				FA9BD00E27E4F4C400733BBC /* News */,
 				FA9BD00F27E4F4D200733BBC /* News Detail */,
 				FA9BD03127E5BC3000733BBC /* Progress Bar  */,
+				FA9BD03627E5E20B00733BBC /* Network Error */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,7 +358,7 @@
 		FAC28AD927E4E8D000AC226B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FA9BD00A27E4F44E00733BBC /* UICollectionView.swift */,
+				FA9BD00A27E4F44E00733BBC /* UICollectionViewCell.swift */,
 				FA9BD00C27E4F46D00733BBC /* UIViewController.swift */,
 			);
 			path = Extensions;
@@ -469,6 +483,7 @@
 			files = (
 				FA9BD03027E5AD3300733BBC /* NewsDetailViewController.xib in Resources */,
 				FAC28AB027E4E7BC00AC226B /* LaunchScreen.storyboard in Resources */,
+				FA9BD03A27E5E25000733BBC /* NetworkErrorViewController.xib in Resources */,
 				FA9BD01B27E4F68600733BBC /* ArchiveCollectionViewCell.xib in Resources */,
 				FA9BD03527E5BC5200733BBC /* ProgressBarViewController.xib in Resources */,
 				FA9BD02727E57D3400733BBC /* ArticleCollectionViewCell.xib in Resources */,
@@ -616,9 +631,10 @@
 				FA9BD02A27E57E6D00733BBC /* ArticleViewModel.swift in Sources */,
 				FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */,
 				FA9BD00927E4F20400733BBC /* ArchiveRequest.swift in Sources */,
-				FA9BD00B27E4F44E00733BBC /* UICollectionView.swift in Sources */,
+				FA9BD00B27E4F44E00733BBC /* UICollectionViewCell.swift in Sources */,
 				FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */,
 				FA9BD02027E5479700733BBC /* ArchiveViewModel.swift in Sources */,
+				FA9BD03927E5E25000733BBC /* NetworkErrorViewController.swift in Sources */,
 				FA9BD02227E57C5C00733BBC /* Article.swift in Sources */,
 				FA9BD02F27E5AD3300733BBC /* NewsDetailViewController.swift in Sources */,
 			);

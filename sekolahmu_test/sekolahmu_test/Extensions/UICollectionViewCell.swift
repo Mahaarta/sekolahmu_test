@@ -1,5 +1,5 @@
 //
-//  UICollectionView.swift
+//  UICollectionViewCell.swift
 //  sekolahmu_test
 //
 //  Created by macbook on 19/03/22.

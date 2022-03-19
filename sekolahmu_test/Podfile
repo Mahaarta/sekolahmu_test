@@ -4,26 +4,29 @@
 target 'sekolahmu_test' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for sekolahmu_test
-
+  
   pod 'Alamofire', '~> 4.7'
   pod 'ObjectMapper'
   pod 'SwiftyJSON'
-
-# Code stuff
+  
+  # popup
+  pod 'EzPopup'
+  
+  # Code stuff
   pod 'SwifterSwift'
-
-# Cache Stuff
+  
+  # Cache Stuff
   pod 'Kingfisher', '~> 5.2'
-
+  
   target 'sekolahmu_testTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
   target 'sekolahmu_testUITests' do
     # Pods for testing
   end
-
+  
 end

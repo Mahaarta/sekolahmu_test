@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import EzPopup
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var colView: UICollectionView!
+    // Variables
+    var isConnectedToInternet = CommonHelper.shared.isConnectedToInternet()
     // Archive
     var arrArticle: [Article]?
     // Define view model
@@ -23,8 +25,12 @@ class NewsViewController: UIViewController {
         
         ArticleCollectionViewCell.register(for: colView)
         
-        settingView()
-        initGetArticleData(query: "")
+        if !isConnectedToInternet {
+            settingViewNoInternet()
+        } else {
+            settingView()
+            initGetArticleData(query: "")
+        }
     }
     
     // Setting up view
@@ -34,22 +40,63 @@ class NewsViewController: UIViewController {
         searchField.addPaddingLeft(16.0)
     }
     
+    // Call progressBar indicator
+    func settingProgressBarView(done: Bool) {
+        let progressBarPop = ProgressBarViewController.loadFromNib()
+        progressBarPop.done = done
+        progressBarPop.progressBarDelegate = self
+        
+        let popupVC = PopupViewController(
+            contentController: progressBarPop,
+            position: .center(CGPoint(x: 0, y: 0)),
+            popupWidth: UIScreen.main.bounds.width-32-32,
+            popupHeight: 150
+        )
+        
+        popupVC.cornerRadius = 24
+        popupVC.canTapOutsideToDismiss = false
+        
+        if !done { self.present(popupVC, animated: true, completion: nil) }
+    }
+    
+    // Setting view no internet
+    func settingViewNoInternet() {
+        let networkError = NetworkErrorViewController.loadFromNib()
+        
+        let popupVC = PopupViewController(
+            contentController: networkError,
+            position: .center(CGPoint(x: 0, y: 0)),
+            popupWidth: UIScreen.main.bounds.width-40-40,
+            popupHeight: 210
+        )
+        
+        popupVC.cornerRadius = 24
+        popupVC.canTapOutsideToDismiss = false
+        self.present(popupVC, animated: true, completion: nil)
+    }
+    
     // init to get data from articleViewModel
     func initGetArticleData(query: String) {
+        settingProgressBarView(done: false)
+        
         articleViewModel.articleDataRequest(query: query)
         articleViewModel.reloadArticleClosure = { (isSuccess: Bool, message: String) in
             DispatchQueue.main.async { [weak self] in
                 if isSuccess {
                     self?.articleViewModel.getArticleData { [weak self] (data: [Article]) in
-                        
-                        //MARK: add loading indicator
-                        
                         self?.arrArticle = data
-                        self?.colView.reloadData()
+                        self?.settingProgressBarView(done: true)
                     }
                 }
             }
         }
+    }
+    
+    // Protocol delegate - From ProgressBarViewController
+    func progressBar(done: Bool) {
+        self.dismiss(animated: true, completion: {
+            self.colView.reloadData()
+        })
     }
 }
 
