@@ -5,6 +5,7 @@
 //  Created by macbook on 19/03/22.
 //
 
+import Hero
 import UIKit
 
 class NewsDetailViewController: UIViewController {
@@ -25,6 +26,10 @@ class NewsDetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         
+        self.hero.isEnabled = true
+        self.navigationController?.hero.isEnabled = true
+        
+        settingHero()
         settingView()
         retrieveArticleData()
     }
@@ -37,6 +42,13 @@ class NewsDetailViewController: UIViewController {
         backContainer.cornerRadius = backContainer.height / 2
         backContainer.borderWidth = 1
         backContainer.borderColor = UIColor(hexString: "CCCCCC")
+    }
+    
+    // Setting up hero id
+    func settingHero() {
+        self.articleImageView.hero.id = "image-\(self.article?._id ?? "")"
+        self.mainContainer.hero.id = "container-\(self.article?._id ?? "")"
+        self.titleLabel.hero.id = "title-\(self.article?._id ?? "")"
     }
     
     // Retrieve article data

@@ -23,7 +23,7 @@ extension UICollectionView {
         messageLabel.text = message
         messageLabel.textColor = UIColor(hexString: "b2bec3")
         messageLabel.numberOfLines = 1;
-        messageLabel.textAlignment = .left;
+        messageLabel.textAlignment = .center;
         messageLabel.font = UIFont(name: "Helvatica", size: 13)
         messageLabel.sizeToFit()
 
@@ -39,7 +39,7 @@ extension UICollectionView {
         }
         
         messageLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(0)
+            make.top.equalToSuperview().offset(20)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }

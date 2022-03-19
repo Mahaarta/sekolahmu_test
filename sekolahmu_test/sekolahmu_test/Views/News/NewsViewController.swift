@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 import EzPopup
 
 class NewsViewController: UIViewController, ProgressBarDelegate {
@@ -13,6 +14,7 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var colView: UICollectionView!
     // Variables
+    var firstLoad = true
     var isConnectedToInternet = CommonHelper.shared.isConnectedToInternet()
     // Archive
     var arrArticle: [Article]?
@@ -23,12 +25,16 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
         super.viewDidLoad()
         title = "News List & Search"
         
+        self.hero.isEnabled = true
+        self.navigationController?.hero.isEnabled = true
+        
         ArticleCollectionViewCell.register(for: colView)
         
         if !isConnectedToInternet {
             settingViewNoInternet()
         } else {
             settingView()
+            settingProgressBarView(done: false)
             initGetArticleData(query: "")
         }
     }
@@ -77,8 +83,6 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
     
     // init to get data from articleViewModel
     func initGetArticleData(query: String) {
-        settingProgressBarView(done: false)
-        
         articleViewModel.articleDataRequest(query: query)
         articleViewModel.reloadArticleClosure = { (isSuccess: Bool, message: String) in
             DispatchQueue.main.async { [weak self] in
@@ -130,8 +134,8 @@ extension NewsViewController: UITextFieldDelegate {
         
         if let text = searchField.text, let textRange = Range(range, in: text) {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
-            if updatedText.count > 0 {
-                
+            if updatedText.count > 4 {
+                initGetArticleData(query: updatedText)
             }
         }
         return true

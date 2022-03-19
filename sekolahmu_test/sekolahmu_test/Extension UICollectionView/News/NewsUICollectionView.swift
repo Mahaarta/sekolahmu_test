@@ -25,6 +25,9 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ArticleCollectionViewCell.self), for: indexPath) as! ArticleCollectionViewCell
         cell.article = self.arrArticle?[safe: indexPath.item]
+        cell.articleImageView.hero.id = "image-\(self.arrArticle?[safe: indexPath.item]?._id ?? "")"
+        cell.mainContainer.hero.id = "container-\(self.arrArticle?[safe: indexPath.item]?._id ?? "")"
+        cell.titleLabel.hero.id = "title-\(self.arrArticle?[safe: indexPath.item]?._id ?? "")"
         
         return cell
     }
@@ -37,6 +40,7 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = NewsDetailViewController.loadFromNib()
         vc.article = self.arrArticle?[safe: indexPath.item]
+        self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

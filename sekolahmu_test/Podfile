@@ -17,6 +17,9 @@ target 'sekolahmu_test' do
   # Autolayout
   pod 'SnapKit'
   
+  # Hero
+  pod 'Hero'
+  
   # Code stuff
   pod 'SwifterSwift'
   
