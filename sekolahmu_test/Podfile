@@ -11,6 +11,9 @@ target 'sekolahmu_test' do
   pod 'ObjectMapper'
   pod 'SwiftyJSON'
   
+  # Storage
+  pod 'Realm'
+  
   # popup
   pod 'EzPopup'
   
