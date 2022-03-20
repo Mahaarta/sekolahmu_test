@@ -99,6 +99,7 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
                     self?.articleViewModel.getArticleData { [weak self] (data: [Article]) in
                         self?.arrArticle = data
                         self?.settingProgressBarView(done: true)
+                        print("udahan ini mas")
                     }
                 }
             }
@@ -165,7 +166,7 @@ extension NewsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // called when 'return' key pressed. return NO to ignore.
         print("TextField should return method called")
-        // may be useful: textField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
 }

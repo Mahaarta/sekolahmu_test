@@ -294,14 +294,14 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     //MARK: Animations
     /// Fade in
     func fadeIn() {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.mainContainer.alpha = 1.0
         }, completion: nil)
     }
     
     /// Fade out
     func fadeOut() {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.mainContainer.alpha = 0.0
         }, completion: nil)
     }
@@ -324,7 +324,7 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     /// Share
     @IBAction func shareButton_tapped(_ sender: Any) {
         guard let article = self.arrArticle?[safe: newsIndex] else {
-            let message = isConnectedToInternet ? Constants.defaultNetworkErrorMessage : Constants.defaultErrorMessage
+            let message = !isConnectedToInternet ? Constants.defaultNetworkErrorMessage : Constants.defaultErrorMessage
             showAlert(title: "", message: message)
             return
         }

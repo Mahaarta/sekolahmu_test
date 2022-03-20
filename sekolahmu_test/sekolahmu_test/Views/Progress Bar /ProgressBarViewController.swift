@@ -21,16 +21,18 @@ class ProgressBarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.progressLabel.text = "Please wait.."
-        self.progressIndicator.setProgress(0.35, animated: true)
-        
+        print("viewDidLoad12")
         if done { settingView() }
+        self.progressLabel.text = "Please wait.."
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+        progressIndicator.setProgress(0.97, animated: true)
     }
     
     func settingView() {
-        print("udah belom \(done)")
-        self.progressIndicator.setProgress(1.0, animated: true)
-        progressBarDelegate.progressBar(done: true)
+        self.progressBarDelegate.progressBar(done: true)
     }
 }
