@@ -14,7 +14,6 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var colView: UICollectionView!
     // Variables
-    var firstLoad = true
     var isConnectedToInternet = CommonHelper.shared.isConnectedToInternet()
     // Archive
     var arrArticle: [Article]?

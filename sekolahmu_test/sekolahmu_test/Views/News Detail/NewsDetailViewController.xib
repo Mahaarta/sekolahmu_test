@@ -17,6 +17,7 @@
                 <outlet property="descUITextView" destination="N0x-96-A6D" id="Hgy-ke-Abp"/>
                 <outlet property="detailNewsLabel" destination="qmV-nQ-59Y" id="QtL-2G-6iC"/>
                 <outlet property="mainContainer" destination="7n1-Vy-KiE" id="2Ls-V3-RHh"/>
+                <outlet property="pageIndicatorLabel" destination="cZb-0h-rMI" id="o2x-bW-WJO"/>
                 <outlet property="shareButton" destination="215-jp-QbM" id="mGj-7I-Y71"/>
                 <outlet property="shareContainer" destination="RQQ-gc-IOX" id="Isl-gD-McI"/>
                 <outlet property="titleLabel" destination="tgP-aS-lmH" id="2pl-HH-giz"/>
@@ -28,10 +29,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ew5-n5-spf">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ew5-n5-spf">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7n1-Vy-KiE" userLabel="main container">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7n1-Vy-KiE" userLabel="main container">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ue6-QZ-khG">
@@ -85,7 +86,7 @@
                                     <color key="textColor" red="0.1843137255" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N0x-96-A6D">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N0x-96-A6D">
                                     <rect key="frame" x="16" y="337.5" width="382" height="464.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -106,6 +107,12 @@
                                         <action selector="bookmarkButton_tapped:" destination="-1" eventType="touchUpInside" id="Ohu-bq-fRx"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZb-0h-rMI">
+                                    <rect key="frame" x="176.5" y="51.5" width="61.5" height="13.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -118,8 +125,10 @@
                                 <constraint firstItem="ue6-QZ-khG" firstAttribute="leading" secondItem="7n1-Vy-KiE" secondAttribute="leading" constant="16" id="HMp-xC-JKp"/>
                                 <constraint firstItem="N0x-96-A6D" firstAttribute="top" secondItem="tgP-aS-lmH" secondAttribute="bottom" constant="16" id="Ktp-JC-uYT"/>
                                 <constraint firstItem="N0x-96-A6D" firstAttribute="leading" secondItem="7n1-Vy-KiE" secondAttribute="leading" constant="16" id="OKu-4Z-iAK"/>
+                                <constraint firstItem="cZb-0h-rMI" firstAttribute="centerX" secondItem="7n1-Vy-KiE" secondAttribute="centerX" id="VKw-SO-byK"/>
                                 <constraint firstItem="tgP-aS-lmH" firstAttribute="leading" secondItem="7n1-Vy-KiE" secondAttribute="leading" constant="20" id="WSq-f7-h4J"/>
                                 <constraint firstItem="ue6-QZ-khG" firstAttribute="top" secondItem="j74-cI-tRF" secondAttribute="bottom" constant="16" id="ZWb-Fd-4Xq"/>
+                                <constraint firstItem="cZb-0h-rMI" firstAttribute="top" secondItem="qmV-nQ-59Y" secondAttribute="bottom" constant="2" id="d70-kC-vqv"/>
                                 <constraint firstAttribute="trailing" secondItem="N0x-96-A6D" secondAttribute="trailing" constant="16" id="mIY-To-jZX"/>
                                 <constraint firstItem="j74-cI-tRF" firstAttribute="top" secondItem="7n1-Vy-KiE" secondAttribute="top" constant="16" id="oCl-UO-Fzh"/>
                                 <constraint firstAttribute="bottom" secondItem="N0x-96-A6D" secondAttribute="bottom" constant="16" id="t9a-yx-fQS"/>

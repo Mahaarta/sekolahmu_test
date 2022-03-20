@@ -39,7 +39,8 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = NewsDetailViewController.loadFromNib()
-        vc.article = self.arrArticle?[safe: indexPath.item]
+        vc.arrArticle = self.arrArticle
+        vc.newsIndex = indexPath.item
         self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         self.navigationController?.pushViewController(vc, animated: true)
     }
