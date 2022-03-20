@@ -10,6 +10,7 @@
 		0AA33FF9F415E9B5BEB761CB /* Pods_sekolahmu_test_sekolahmu_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E70756953EE78858DA804F /* Pods_sekolahmu_test_sekolahmu_testUITests.framework */; };
 		620E29E8323AAFA4D38573F2 /* Pods_sekolahmu_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A91CF5B0EE6D2CF6AE9011C /* Pods_sekolahmu_testTests.framework */; };
 		8802182AE613E47A48B444F3 /* Pods_sekolahmu_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB96AEF068D238722EDF172 /* Pods_sekolahmu_test.framework */; };
+		FA57D94027E739630012FC7A /* RealmNewsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57D93F27E739630012FC7A /* RealmNewsObject.swift */; };
 		FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */; };
 		FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00027E4EE2100733BBC /* CommonHelper.swift */; };
 		FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00427E4EEBB00733BBC /* Archive.swift */; };
@@ -72,6 +73,7 @@
 		5F6396AB17397075C38D0B7A /* Pods-sekolahmu_testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_testTests.release.xcconfig"; path = "Target Support Files/Pods-sekolahmu_testTests/Pods-sekolahmu_testTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C479C596DAA3B0ACF2E7D73 /* Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B635809140164D54D4012804 /* Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA57D93F27E739630012FC7A /* RealmNewsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmNewsObject.swift; path = ../../../../../../../../../Documents/RealmNewsObject.swift; sourceTree = "<group>"; };
 		FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		FA9BD00027E4EE2100733BBC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		FA9BD00427E4EEBB00733BBC /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
@@ -160,6 +162,22 @@
 				3A91CF5B0EE6D2CF6AE9011C /* Pods_sekolahmu_testTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA57D93D27E7394E0012FC7A /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				FA57D93E27E739570012FC7A /* News */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		FA57D93E27E739570012FC7A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FA57D93F27E739630012FC7A /* RealmNewsObject.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		FA9BD00E27E4F4C400733BBC /* News */ = {
@@ -267,6 +285,7 @@
 			children = (
 				FAC28AD827E4E8C000AC226B /* Cells */,
 				FAC28AD727E4E8B800AC226B /* Views */,
+				FA57D93D27E7394E0012FC7A /* Realm */,
 				FAC28AD527E4E8A500AC226B /* Models */,
 				FAC28AD427E4E89F00AC226B /* Helpers */,
 				FAC28AD927E4E8D000AC226B /* Extensions */,
@@ -635,6 +654,7 @@
 				FA9BD00727E4EFCB00733BBC /* Multimedia.swift in Sources */,
 				FA9BD00927E4F20400733BBC /* ArchiveRequest.swift in Sources */,
 				FA9BD00B27E4F44E00733BBC /* UICollectionViewCell.swift in Sources */,
+				FA57D94027E739630012FC7A /* RealmNewsObject.swift in Sources */,
 				FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */,
 				FA9BD02027E5479700733BBC /* ArchiveViewModel.swift in Sources */,
 				FA9BD03927E5E25000733BBC /* NetworkErrorViewController.swift in Sources */,

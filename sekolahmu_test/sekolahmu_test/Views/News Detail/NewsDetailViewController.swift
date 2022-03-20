@@ -9,6 +9,7 @@ import Hero
 import UIKit
 import EzPopup
 import Kingfisher
+import RealmSwift
 
 class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var mainContainer: UIView!
@@ -28,6 +29,8 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     var newsIndex = 0
     var newsCount = 0
     var isConnectedToInternet = CommonHelper.shared.isConnectedToInternet()
+    // Realm results
+    var resultRealmNewsObject: Results<RealmNewsObject>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,24 +43,24 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         settingSwipeGesture()
         
         if !isConnectedToInternet {
-            mainContainer.isHidden = true
-            shareContainer.isHidden = true
             settingViewNoInternet()
-        } else {
-            mainContainer.isHidden = false
-            shareContainer.isHidden = false
             settingView()
-            retrieveArticleData()
+            retrieveArticleOfflineData()
+            
+        } else {
+            settingView()
+            retrieveArticleOnlineData()
         }
     }
     
     // Setting view
     func settingView() {
-        newsCount = self.arrArticle?.count ?? 0
+        let articleOnline = self.arrArticle?.count
+        let articleOffline = self.resultRealmNewsObject?.count
+        newsCount = articleOnline ?? articleOffline ?? 0
         
         articleImageView.cornerRadius = 12
         shareContainer.cornerRadius = shareContainer.height / 2
-        
         backContainer.cornerRadius = backContainer.height / 2
         backContainer.borderWidth = 1
         backContainer.borderColor = UIColor(hexString: "CCCCCC")
@@ -94,19 +97,22 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         )
         
         popupVC.cornerRadius = 24
-        popupVC.canTapOutsideToDismiss = false
+        popupVC.canTapOutsideToDismiss = true
         self.present(popupVC, animated: true, completion: nil)
     }
     
     // Setting up hero id
     func settingHero() {
-        self.articleImageView.hero.id = "image-\(self.arrArticle?[safe: newsIndex]?._id ?? "")"
-        self.mainContainer.hero.id = "container-\(self.arrArticle?[safe: newsIndex]?._id ?? "")"
-        self.titleLabel.hero.id = "title-\(self.arrArticle?[safe: newsIndex]?._id ?? "")"
+        let articleOnline = self.arrArticle?[safe: newsIndex]
+        let articleOffline = self.resultRealmNewsObject?[safe: newsIndex]
+        
+        self.articleImageView.hero.id = "image-\(articleOnline?._id ?? articleOffline?._id ?? "")"
+        self.mainContainer.hero.id = "container-\(articleOnline?._id ?? articleOffline?._id ?? "")"
+        self.titleLabel.hero.id = "title-\(articleOnline?._id ?? articleOffline?._id ?? "")"
     }
     
-    // Retrieve article data
-    func retrieveArticleData() {
+    // Retrieve article online data
+    func retrieveArticleOnlineData() {
         guard let article = arrArticle?[safe: newsIndex] else {
             settingProgressBarView(done: true)
             showAlert(title: "", message: Constants.defaultErrorMessage)
@@ -119,15 +125,32 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         
         titleLabel.text = article.headline_main
         descUITextView.text = article.lead_paragraph
-        retrieveImageData(multimedia: article.multimedia)
+        retrieveImageData(image: article.multimedia.filter { $0.subtype == "blog480" }.first?.url ?? "")
+    }
+    
+    // Retrieve article offline data
+    func retrieveArticleOfflineData() {
+        print("self.resultRealmNewsObject \(self.resultRealmNewsObject?.first)")
+        guard let article = self.resultRealmNewsObject?[safe: newsIndex] else {
+            settingProgressBarView(done: true)
+            showAlert(title: "", message: Constants.defaultErrorMessage)
+            return
+        }
+
+        self.settingProgressBarView(done: true)
+        self.fadeIn()
+        self.pageIndicatorLabel.text = "(\(self.newsIndex + 1)/\(self.newsCount))"
+        
+        titleLabel.text = article.headline_main
+        descUITextView.text = article.lead_paragraph
+        retrieveImageData(image: article.detail_image)
     }
     
     // Retrieve image data
-    func retrieveImageData(multimedia: [Multimedia]) {
-        let thumbnail = multimedia.filter { $0.subtype == "blog480" }.first?.url
-        if let thumbnail = thumbnail {
-            settingCacheImage(URLString: "\(Endpoints.News.thumbnail.url)/\(thumbnail)")
-            retrieveCacheImage(URLString: "\(Endpoints.News.thumbnail.url)/\(thumbnail)")
+    func retrieveImageData(image: String) {
+        if image != "" {
+            settingCacheImage(URLString: "\(Endpoints.News.thumbnail.url)/\(image)")
+            retrieveCacheImage(URLString: "\(Endpoints.News.thumbnail.url)/\(image)")
         } else {
             articleImageView.image = UIImage(named: "image-default")
         }
@@ -280,7 +303,7 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
                 if (newsIndex - 1) >= 0 {
                     newsIndex -= 1
                     self.fadeOut()
-                    self.retrieveArticleData()
+                    isConnectedToInternet ? self.retrieveArticleOnlineData() : self.retrieveArticleOfflineData()
                 }
                     
             case UISwipeGestureRecognizer.Direction.left:
@@ -289,7 +312,7 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
                 if (newsIndex + 1) < newsCount {
                     newsIndex += 1
                     self.fadeOut()
-                    self.retrieveArticleData()
+                    isConnectedToInternet ? self.retrieveArticleOnlineData() : self.retrieveArticleOfflineData()
                 }
                 
             default:

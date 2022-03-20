@@ -5,9 +5,10 @@
 //  Created by macbook on 19/03/22.
 //
 
-import UIKit
 import Hero
+import UIKit
 import EzPopup
+import RealmSwift
 
 class NewsViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var searchContainer: UIView!
@@ -19,6 +20,8 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
     var arrArticle: [Article]?
     // Define view model
     var articleViewModel = ArticleViewModel()
+    // Realm results
+    var resultRealmNewsObject: Results<RealmNewsObject>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
         
         if !isConnectedToInternet {
             settingViewNoInternet()
+            restoreArticleData()
+            
         } else {
             settingView()
             settingProgressBarView(done: false)
@@ -80,7 +85,7 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
         )
         
         popupVC.cornerRadius = 24
-        popupVC.canTapOutsideToDismiss = false
+        popupVC.canTapOutsideToDismiss = true
         self.present(popupVC, animated: true, completion: nil)
     }
     
@@ -97,6 +102,13 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
                 }
             }
         }
+    }
+    
+    // MARK: RESTORE DATA FROM LOCAL DB
+    /// Article data
+    func restoreArticleData() {
+        let realm = try! Realm()
+        self.resultRealmNewsObject = realm.objects(RealmNewsObject.self)
     }
     
     // Protocol delegate - From ProgressBarViewController

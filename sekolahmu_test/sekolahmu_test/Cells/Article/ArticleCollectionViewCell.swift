@@ -14,27 +14,37 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
-    // Weather online data
+    // Article online data
     var article: Article? {
         didSet {
             guard let article = article else { return }
+            let thumbnail = article.multimedia.filter { $0.subtype == "thumbnail" }.first?.url ?? ""
             
-            getArchiveThumbnail(multimedia: article.multimedia)
+            getArchiveThumbnail(thumbnail: thumbnail)
             titleLabel.text = article.headline_main
             descLabel.text = article.abstract
         }
     }
     
+    // Article online data
+    var realmNewsObject: RealmNewsObject? {
+        didSet {
+            guard let realmNewsObject = realmNewsObject else { return }
+            let thumbnail = realmNewsObject.thumbnail
+            
+            getArchiveThumbnail(thumbnail: thumbnail)
+            titleLabel.text = realmNewsObject.headline_main
+            descLabel.text = realmNewsObject.abstract
+        }
+    }
+    
     // Get thumbnail photo
-    func getArchiveThumbnail(multimedia: [Multimedia]) {
-        let thumbnail = multimedia.filter { $0.subtype == "thumbnail" }.first?.url
-        
-        if let thumbnail = thumbnail {
+    func getArchiveThumbnail(thumbnail: String) {
+        if thumbnail != "" {
             settingCacheImage(URLString: "\(Endpoints.News.thumbnail.url)/\(thumbnail)")
             retrieveCacheImage(URLString: "\(Endpoints.News.thumbnail.url)/\(thumbnail)")
         } else {
             articleImageView.image = UIImage(named: "image-default")
-            articleImageView.contentMode = .scaleAspectFill
         }
         
     }
@@ -114,6 +124,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         descLabel.numberOfLines = 3
         
         articleImageView.cornerRadius = 12
+        articleImageView.contentMode = .scaleAspectFill
         
         mainContainer.cornerRadius = 12
         mainContainer.addShadow(ofColor: .lightGray, radius: 3.0, offset: CGSize.zero, opacity: 0.6)
