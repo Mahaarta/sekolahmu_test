@@ -12,7 +12,7 @@ target 'sekolahmu_test' do
   pod 'SwiftyJSON'
   
   # Storage
-  pod 'Realm'
+  pod 'RealmSwift'
   
   # popup
   pod 'EzPopup'
