@@ -39,7 +39,7 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
         } else {
             settingView()
             settingProgressBarView(done: false)
-            initGetArticleData(query: "")
+            initGetArticleData(query: "", newsPosition: "home")
         }
     }
     
@@ -90,7 +90,8 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
     }
     
     // init to get data from articleViewModel
-    func initGetArticleData(query: String) {
+    func initGetArticleData(query: String, newsPosition: String) {
+        articleViewModel.news_position = newsPosition
         articleViewModel.articleDataRequest(query: query)
         articleViewModel.reloadArticleClosure = { (isSuccess: Bool, message: String) in
             DispatchQueue.main.async { [weak self] in
@@ -104,18 +105,17 @@ class NewsViewController: UIViewController, ProgressBarDelegate {
         }
     }
     
-    // MARK: RESTORE DATA FROM LOCAL DB
-    /// Article data
-    func restoreArticleData() {
-        let realm = try! Realm()
-        self.resultRealmNewsObject = realm.objects(RealmNewsObject.self)
-    }
-    
     // Protocol delegate - From ProgressBarViewController
     func progressBar(done: Bool) {
         self.dismiss(animated: true, completion: {
             self.colView.reloadData()
         })
+    }
+    
+    // Restore local article data
+    func restoreArticleData() {
+        let realm = try! Realm()
+        self.resultRealmNewsObject = realm.objects(RealmNewsObject.self)
     }
 }
 
@@ -150,7 +150,7 @@ extension NewsViewController: UITextFieldDelegate {
         if let text = searchField.text, let textRange = Range(range, in: text) {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
             if updatedText.count > 4 {
-                initGetArticleData(query: updatedText)
+                initGetArticleData(query: updatedText, newsPosition: "search-\(updatedText)")
             }
         }
         return true

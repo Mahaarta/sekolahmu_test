@@ -12,7 +12,7 @@ import Foundation
 extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let articleOnline = self.arrArticle?.count
-        let articleOffline = self.resultRealmNewsObject?.count
+        let articleOffline = self.resultRealmNewsObject?.filter { $0.news_position == "home" }.count
         
         if (articleOnline ?? articleOffline ?? 0 == 0) {
             self.colView.setEmptyMessage("No News Found")
@@ -25,7 +25,7 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let articleOnline = self.arrArticle?[safe: indexPath.item]
-        let articleOffline = self.resultRealmNewsObject?[safe: indexPath.item]
+        let articleOffline = self.resultRealmNewsObject?.filter { $0.news_position == "home" }[safe: indexPath.item]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ArticleCollectionViewCell.self), for: indexPath) as! ArticleCollectionViewCell
         cell.article = articleOnline

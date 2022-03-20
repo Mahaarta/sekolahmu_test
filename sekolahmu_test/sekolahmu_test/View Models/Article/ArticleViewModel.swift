@@ -14,6 +14,8 @@ class ArticleViewModel {
     // Archive Request
     var articleRequest = ArticleRequest()
     var arrArticle: [Article]?
+    // Variable
+    var news_position = ""
     
     // Request data
     func articleDataRequest(query: String) {
@@ -57,6 +59,7 @@ class ArticleViewModel {
                         article_obj.headline_sub = article.headline_sub
                         article_obj.thumbnail = article.multimedia.filter { $0.subtype == "thumbnail" }.first?.url ?? ""
                         article_obj.detail_image = article.multimedia.filter { $0.subtype == "blog480" }.first?.url ?? ""
+                        article_obj.news_position = self.news_position
                         
                         realm.add(article_obj, update: .modified)
                     }
@@ -72,7 +75,11 @@ class ArticleViewModel {
 extension ArticleViewModel: ArticleRequestDelegate {
     func ArticleRequestSuccess(_ articleList: ArticleList) {
         self.arrArticle = articleList.arrArticle
-        self.savingLocalArticle(arrArticle: articleList.arrArticle)
+        
+        if news_position == "home" {
+            self.savingLocalArticle(arrArticle: articleList.arrArticle)
+        }
+        
         self.reloadArticleClosure?(true, "")
     }
     

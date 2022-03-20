@@ -31,6 +31,7 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     var isConnectedToInternet = CommonHelper.shared.isConnectedToInternet()
     // Realm results
     var resultRealmNewsObject: Results<RealmNewsObject>?
+    var resultRealmBookmarkObject: Results<RealmBookmarkObject>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,9 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         backContainer.cornerRadius = backContainer.height / 2
         backContainer.borderWidth = 1
         backContainer.borderColor = UIColor(hexString: "CCCCCC")
+        
+        shareButton.addShadow(ofColor: .lightGray, radius: 2.0, offset: CGSize.zero, opacity: 0.3)
+        shareButton.layer.shadowOffset = CGSize(width: 0 , height: 2)
     }
     
     // Call progressBar indicator
@@ -126,11 +130,18 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         titleLabel.text = article.headline_main
         descUITextView.text = article.lead_paragraph
         retrieveImageData(image: article.multimedia.filter { $0.subtype == "blog480" }.first?.url ?? "")
+        
+        print("bookmak \(article._id) == \(restoreBookmarkID()))")
+        
+        if article._id != restoreBookmarkID() {
+            bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        } else {
+            bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        }
     }
     
     // Retrieve article offline data
     func retrieveArticleOfflineData() {
-        print("self.resultRealmNewsObject \(self.resultRealmNewsObject?.first)")
         guard let article = self.resultRealmNewsObject?[safe: newsIndex] else {
             settingProgressBarView(done: true)
             showAlert(title: "", message: Constants.defaultErrorMessage)
@@ -144,6 +155,12 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         titleLabel.text = article.headline_main
         descUITextView.text = article.lead_paragraph
         retrieveImageData(image: article.detail_image)
+        
+        if article._id != restoreBookmarkID() {
+            bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        } else {
+            bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        }
     }
     
     // Retrieve image data
@@ -156,6 +173,18 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         }
         
         articleImageView.contentMode = .scaleAspectFill
+    }
+    
+    // Restore local bookmark data
+    func restoreBookmarkID() -> String {
+        let realm = try! Realm()
+        self.resultRealmBookmarkObject = realm.objects(RealmBookmarkObject.self)
+        
+        let articleOnline = self.arrArticle?[safe: newsIndex]
+        let articleOffline = self.resultRealmNewsObject?[safe: newsIndex]
+        let localBookmarkID = self.resultRealmBookmarkObject?.filter { $0._id == (articleOnline?._id ?? articleOffline?._id ?? "") }.first
+        
+        return localBookmarkID?._id ?? ""
     }
     
     // setting up image from cache
@@ -238,6 +267,23 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         self.view.addGestureRecognizer(swipeDown)
     }
     
+    // Saving to local storage
+    func savingLocalBookmark(id: String) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let bookmark_obj = RealmBookmarkObject()
+                bookmark_obj._id = id
+                
+                realm.add(bookmark_obj, update: .modified)
+                
+                self.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            }
+        } catch let error as NSError{
+            print("adding data to Realm error = \(error)")
+        }
+    }
+    
     // Protocol delegate - From ProgressBarViewController
     func progressBar(done: Bool) {
         if done {
@@ -268,12 +314,18 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
     
     /// Bookmar
     @IBAction func bookmarkButton_tapped(_ sender: Any) {
+        let articleOnline = self.arrArticle?[safe: newsIndex]
+        let articleOffline = self.resultRealmNewsObject?[safe: newsIndex]
+
+
+        savingLocalBookmark(id: articleOnline?._id ?? articleOffline?._id ?? "")
     }
     
     /// Share
     @IBAction func shareButton_tapped(_ sender: Any) {
         guard let article = self.arrArticle?[safe: newsIndex] else {
-            showAlert(title: "", message: Constants.defaultErrorMessage)
+            let message = isConnectedToInternet ? Constants.defaultNetworkErrorMessage : Constants.defaultErrorMessage
+            showAlert(title: "", message: message)
             return
         }
         

@@ -11,6 +11,7 @@
 		620E29E8323AAFA4D38573F2 /* Pods_sekolahmu_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A91CF5B0EE6D2CF6AE9011C /* Pods_sekolahmu_testTests.framework */; };
 		8802182AE613E47A48B444F3 /* Pods_sekolahmu_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB96AEF068D238722EDF172 /* Pods_sekolahmu_test.framework */; };
 		FA57D94027E739630012FC7A /* RealmNewsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57D93F27E739630012FC7A /* RealmNewsObject.swift */; };
+		FA7CD82427E759DA006A5FDD /* RealmBookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CD82327E759DA006A5FDD /* RealmBookmarkObject.swift */; };
 		FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */; };
 		FA9BD00127E4EE2100733BBC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00027E4EE2100733BBC /* CommonHelper.swift */; };
 		FA9BD00527E4EEBB00733BBC /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BD00427E4EEBB00733BBC /* Archive.swift */; };
@@ -74,6 +75,7 @@
 		9C479C596DAA3B0ACF2E7D73 /* Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B635809140164D54D4012804 /* Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; path = "Target Support Files/Pods-sekolahmu_test-sekolahmu_testUITests/Pods-sekolahmu_test-sekolahmu_testUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA57D93F27E739630012FC7A /* RealmNewsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmNewsObject.swift; path = ../../../../../../../../../Documents/RealmNewsObject.swift; sourceTree = "<group>"; };
+		FA7CD82327E759DA006A5FDD /* RealmBookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookmarkObject.swift; sourceTree = "<group>"; };
 		FA9BCFFE27E4EB9E00733BBC /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		FA9BD00027E4EE2100733BBC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		FA9BD00427E4EEBB00733BBC /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				FA57D93E27E739570012FC7A /* News */,
+				FA7CD82227E759BB006A5FDD /* Bookmark */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -178,6 +181,14 @@
 				FA57D93F27E739630012FC7A /* RealmNewsObject.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		FA7CD82227E759BB006A5FDD /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				FA7CD82327E759DA006A5FDD /* RealmBookmarkObject.swift */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		FA9BD00E27E4F4C400733BBC /* News */ = {
@@ -640,6 +651,7 @@
 			files = (
 				FA9BD01627E4F55100733BBC /* NewsUICollectionView.swift in Sources */,
 				FA9BCFFF27E4EB9E00733BBC /* ApiHelper.swift in Sources */,
+				FA7CD82427E759DA006A5FDD /* RealmBookmarkObject.swift in Sources */,
 				FAC28ADE27E4E92600AC226B /* Constants.swift in Sources */,
 				FA9BD01A27E4F68600733BBC /* ArchiveCollectionViewCell.swift in Sources */,
 				FA9BD00D27E4F46D00733BBC /* UIViewController.swift in Sources */,

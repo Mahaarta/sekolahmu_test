@@ -12,12 +12,16 @@ enum Constants {
     // App Information
     static var APIKey = "ohUOeisWtjswZ3kvNiCkTA2RqyAG7coI"
     
-    // CONSTANT MESSAGE
-    static var defaultErrorTitle = "Gagal"
-    static var defaultSuccessTitle = "Sukses"
-    static var defaultInformationTitle = "Informasi"
-    static var defaultErrorMessage = "Terjadi kesalahan, silahkan coba lagi"
-    static var defaultSuccessMessage = "Proses sukses"
+    // CONSTANT TITLE
+    static var defaultErrorTitle = "Failed"
+    static var defaultSuccessTitle = "Success"
+    static var defaultInformationTitle = "Information"
     static var loadingTitle = "Loading.."
+    static var defaultNetworkErrorTitle = "Network Error"
+    
+    // CONSTANT MESSAGE
+    static var defaultErrorMessage = "Something went wrong, try again later"
+    static var defaultNetworkErrorMessage = "Unable to contact the server"
+    
 }
 
