@@ -127,17 +127,12 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         self.fadeIn()
         self.pageIndicatorLabel.text = "(\(self.newsIndex + 1)/\(self.newsCount))"
         
+        let bookmarkSystemImage = self.bookmarkCondition(articleID: article._id, localID: restoreBookmarkID())
+        bookmarkButton.setImage(UIImage(systemName: bookmarkSystemImage), for: .normal)
+        
         titleLabel.text = article.headline_main
         descUITextView.text = article.lead_paragraph
         retrieveImageData(image: article.multimedia.filter { $0.subtype == "blog480" }.first?.url ?? "")
-        
-        print("bookmak \(article._id) == \(restoreBookmarkID()))")
-        
-        if article._id != restoreBookmarkID() {
-            bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        } else {
-            bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        }
     }
     
     // Retrieve article offline data
@@ -151,16 +146,12 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         self.settingProgressBarView(done: true)
         self.fadeIn()
         self.pageIndicatorLabel.text = "(\(self.newsIndex + 1)/\(self.newsCount))"
+        let bookmarkSystemImage = self.bookmarkCondition(articleID: article._id, localID: restoreBookmarkID())
+        bookmarkButton.setImage(UIImage(systemName: bookmarkSystemImage), for: .normal)
         
         titleLabel.text = article.headline_main
         descUITextView.text = article.lead_paragraph
         retrieveImageData(image: article.detail_image)
-        
-        if article._id != restoreBookmarkID() {
-            bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        } else {
-            bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        }
     }
     
     // Retrieve image data
@@ -185,6 +176,15 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         let localBookmarkID = self.resultRealmBookmarkObject?.filter { $0._id == (articleOnline?._id ?? articleOffline?._id ?? "") }.first
         
         return localBookmarkID?._id ?? ""
+    }
+    
+    // Setting up bookmark condition
+    func bookmarkCondition(articleID: String, localID: String) -> String {
+        if articleID != localID {
+            return "bookmark"
+        } else {
+            return "bookmark.fill"
+        }
     }
     
     // setting up image from cache

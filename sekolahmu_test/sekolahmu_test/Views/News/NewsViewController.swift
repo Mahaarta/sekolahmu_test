@@ -152,6 +152,8 @@ extension NewsViewController: UITextFieldDelegate {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
             if updatedText.count > 4 {
                 initGetArticleData(query: updatedText, newsPosition: "search-\(updatedText)")
+            } else {
+                initGetArticleData(query: "", newsPosition: "search-\(updatedText)")
             }
         }
         return true
