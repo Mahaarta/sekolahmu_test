@@ -18,7 +18,7 @@ class sekolahmu_testTests: XCTestCase {
     // Test bookmark system image
     func testBookmarkFillSystemImage() {
         let bookmarkSystemImage = newsDetailVC?.bookmarkCondition(articleID: "nyt://123", localID: "nyt://123")
-        XCTAssertEqual(bookmarkSystemImage, "bookmark.fill", "if meet the condition systemImage should be 'bookmark'")
+        XCTAssertEqual(bookmarkSystemImage, "bookmark.fill", "if meet the condition systemImage should be 'bookmark.fill'")
     }
     
     func testBookmarkSystemImage() {
@@ -43,7 +43,6 @@ class sekolahmu_testTests: XCTestCase {
         // news index is the active news that user selected
         var newsIndex = 2
         let newsCount = 4
-        
         
         for _ in 0...newsCount {
             if (newsIndex + 1) < newsCount {
