@@ -317,7 +317,6 @@ class NewsDetailViewController: UIViewController, ProgressBarDelegate {
         let articleOnline = self.arrArticle?[safe: newsIndex]
         let articleOffline = self.resultRealmNewsObject?[safe: newsIndex]
 
-
         savingLocalBookmark(id: articleOnline?._id ?? articleOffline?._id ?? "")
     }
     
